@@ -80,7 +80,7 @@ find_prls <- function(phase_path, prob_map, bin_map,
                                 newdata = ria.df,
                                 type = "prob")
   for (j in 1:nrow(predictions)) {
-    lesion_mask[lesion_mask == j] <- predictions["rimpos"][j]
+    lesion_mask[lesion_mask == j] <- unlist(predictions["rimpos"])[j]
   }
   
   return(list(
