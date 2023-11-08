@@ -39,8 +39,9 @@ split_confluent <- function(i, labeled_image, lesion_center_image) {
     lesion_center_image * lesion
   )
   s <- unique(split_lesion[split_lesion != 0])
-  for (i in 1:length(s)) {
-    split_lesion[split_lesion == s[i]] <- i
+  s_arr <- s[order(s)]
+  for (j in 1:length(s_arr)) {
+    split_lesion[split_lesion == s_arr[j]] <- j
   }
   return(split_lesion)
 }
